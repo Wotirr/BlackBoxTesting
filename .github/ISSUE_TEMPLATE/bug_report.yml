@@ -1,1 +1,102 @@
+name: Отчет о дефекте
+description: Шаблон для оформления отчета об обнаруженном дефекте
+title: "[Ошибка]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Спасибо, что сообщаете о дефекте!
+        Пожалуйста, заполните все обязательные поля, чтобы дефект можно было **воспроизвести** и **исправить**.
 
+  - type: textarea
+    id: description
+    attributes:
+      label: Описание
+      description: Кратко опишите суть дефекта
+      placeholder: Например, при нажатии на кнопку "Сохранить" приложение закрывается
+    validations:
+      required: true
+
+  - type: textarea
+    id: preconditions
+    attributes:
+      label: Предусловия
+      description: Что должно быть выполнено до начала воспроизведения (версия, окружение, данные)
+      placeholder: Например, пользователь авторизован, версия приложения 1.0
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Шаги воспроизведения
+      description: Перечислите последовательность действий, приводящих к дефекту
+      placeholder: |
+        1. Открыть приложение
+        2. Перейти в раздел ...
+        3. Нажать на ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Ожидаемый результат
+      description: Как должно работать приложение
+      placeholder: Данные сохраняются, отображается сообщение об успехе
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Фактический результат
+      description: Что происходит на самом деле
+      placeholder: Приложение аварийно завершает работу
+    validations:
+      required: true
+
+  - type: textarea
+    id: attachments
+    attributes:
+      label: Скриншоты / Доп. материалы
+      description: Приложите скриншоты, логи, видео (можно перетащить файл в это поле)
+      placeholder: Вставьте изображения или ссылки
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Приоритет
+      description: Насколько срочно нужно исправить дефект
+      options:
+        - Низкий
+        - Средний
+        - Высокий
+        - Срочный
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Серьезность
+      description: Степень влияния дефекта на работу приложения
+      options:
+        - Незначительная
+        - Малая
+        - Значительная
+        - Критическая
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Подтверждение
+      description: Пожалуйста, подтвердите перед отправкой
+      options:
+        - label: Я ознакомился с уже существующими отчетами о дефектах, такого дефекта там нет
+          required: true
